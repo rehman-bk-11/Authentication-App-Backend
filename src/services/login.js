@@ -11,7 +11,7 @@ async function login(email, password) {
         }
         console.log("password",password);
         console.log("Userpass",existingUser.password)
-        const isPasswordValid = bcrypt.compare(password, existingUser.password);
+        const isPasswordValid = await bcrypt.compare(password, existingUser.password);
         if(!isPasswordValid) {
             throw new Error("Incorrect password");
         }
